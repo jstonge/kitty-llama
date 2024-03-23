@@ -1,0 +1,235 @@
+{
+    "os": "Linux-3.10.0-1160.36.2.el7.x86_64-x86_64-with-glibc2.17",
+    "python": "3.9.18",
+    "heartbeatAt": "2024-02-08T19:57:37.380067",
+    "startedAt": "2024-02-08T19:57:36.542965",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "training_vscode-jvsc-c622b1f9-04cb-4755-947b-0e7623dd673f3c92ab77-4204-4e45-be13-e6292c884d88.ipynb",
+    "codePathLocal": null,
+    "root": "/gpfs1/home/j/s/jstonge1/catDB",
+    "git": {
+        "remote": "https://github.com/jstonge/catDB.git",
+        "commit": "22400e99e81822201d0bfedd271fdd7b8949ad41"
+    },
+    "email": "jonathanstonge7@gmail.com",
+    "host": "dg-gpunode05.cluster",
+    "username": "jstonge1",
+    "executable": "/users/j/s/jstonge1/miniconda3/envs/llama_env/bin/python",
+    "cpu_count": 32,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 1059.375,
+        "min": 1000.0,
+        "max": 2100.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1100.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1200.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 2100.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1200.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        },
+        {
+            "current": 1000.0,
+            "min": 1000.0,
+            "max": 2100.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 127.9375,
+            "used": 35.563167572021484
+        }
+    },
+    "gpu": "Tesla V100-SXM2-32GB",
+    "gpu_count": 8,
+    "gpu_devices": [
+        {
+            "name": "Tesla V100-SXM2-32GB",
+            "memory_total": 34359738368
+        },
+        {
+            "name": "Tesla V100-SXM2-32GB",
+            "memory_total": 34359738368
+        },
+        {
+            "name": "Tesla V100-SXM2-32GB",
+            "memory_total": 34359738368
+        },
+        {
+            "name": "Tesla V100-SXM2-32GB",
+            "memory_total": 34359738368
+        },
+        {
+            "name": "Tesla V100-SXM2-32GB",
+            "memory_total": 34359738368
+        },
+        {
+            "name": "Tesla V100-SXM2-32GB",
+            "memory_total": 34359738368
+        },
+        {
+            "name": "Tesla V100-SXM2-32GB",
+            "memory_total": 34359738368
+        },
+        {
+            "name": "Tesla V100-SXM2-32GB",
+            "memory_total": 34359738368
+        }
+    ],
+    "memory": {
+        "total": 754.5624694824219
+    }
+}

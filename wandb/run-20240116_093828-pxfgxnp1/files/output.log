@@ -1,0 +1,156 @@
+
+  0%|                                                                                                             | 0/498 [00:00<?, ?it/s]
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+Cell In[29], line 31
+[1m     22[22m trainer [38m=[39m Trainer(
+[1m     23[22m     model[38m=[39mmodel,
+[1m     24[22m     args[38m=[39mtraining_args,
+   (...)
+[1m     28[22m     callbacks[38m=[39m[profiler_callback] [38mif[39m enable_profiler [38melse[39m [],
+[1m     29[22m )
+[1m     30[22m [38m# Start training
+---> 31 [43mtrainer[38m[49m.[39m[43mtrain()
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/transformers/trainer.py:1555, in Trainer.train(self, resume_from_checkpoint, trial, ignore_keys_for_eval, **kwargs)
+[1m   1553[22m         hf_hub_utils[38m.[39menable_progress_bars()
+[1m   1554[22m [38melse[39m:
+-> 1555     [38mreturn[39m [43minner_training_loop(
+[1m   1556[22m [43m        args[38m[49m=[39m[43margs,
+[1m   1557[22m [43m        resume_from_checkpoint[38m[49m=[39m[43mresume_from_checkpoint,
+[1m   1558[22m [43m        trial[38m[49m=[39m[43mtrial,
+[1m   1559[22m [43m        ignore_keys_for_eval[38m[49m=[39m[43mignore_keys_for_eval,
+[1m   1560[22m [43m    )
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/transformers/trainer.py:1838, in Trainer._inner_training_loop(self, batch_size, args, resume_from_checkpoint, trial, ignore_keys_for_eval)
+[1m   1835[22m     rng_to_sync [38m=[39m [38mTrue
+[1m   1837[22m step [38m=[39m [38m-1
+-> 1838 [38mfor[39m step, inputs [38min[39m [38menumerate[39m(epoch_iterator):
+[1m   1839[22m     total_batched_samples [38m+=[39m [38m1
+[1m   1840[22m     [38mif[39m rng_to_sync:
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/accelerate/data_loader.py:451, in DataLoaderShard.__iter__(self)
+[1m    449[22m [38m# We iterate one batch ahead to check when we are at the end
+[1m    450[22m [38mtry[39m:
+--> 451     current_batch [38m=[39m [38mnext[39m[43m(dataloader_iter)
+[1m    452[22m [38mexcept[39m [38mStopIteration[39m:
+[1m    453[22m     [38myield
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py:631, in _BaseDataLoaderIter.__next__(self)
+[1m    628[22m [38mif[39m [38mself.[39m_sampler_iter [38mis[39m [38mNone[39m:
+[1m    629[22m     [38m# TODO(https://github.com/pytorch/pytorch/issues/76750)
+[1m    630[22m     [38mself.[39m_reset()  [38m# type: ignore[call-arg]
+--> 631 data [38m=[39m [38mself.[39m[43m_next_data()
+[1m    632[22m [38mself.[39m_num_yielded [38m+=[39m [38m1
+[1m    633[22m [38mif[39m [38mself.[39m_dataset_kind [38m==[39m _DatasetKind[38m.[39mIterable [38mand[39m \
+[1m    634[22m         [38mself.[39m_IterableDataset_len_called [38mis[39m [38mnot[39m [38mNone[39m [38mand[39m \
+[1m    635[22m         [38mself.[39m_num_yielded [38m>[39m [38mself.[39m_IterableDataset_len_called:
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py:675, in _SingleProcessDataLoaderIter._next_data(self)
+[1m    673[22m [38mdef[39m [38m_next_data[39m([38mself[39m):
+[1m    674[22m     index [38m=[39m [38mself.[39m_next_index()  [38m# may raise StopIteration
+--> 675     data [38m=[39m [38mself.[39m[43m_dataset_fetcher[38m[49m.[39m[43mfetch(index)[49m  [38m# may raise StopIteration
+[1m    676[22m     [38mif[39m [38mself.[39m_pin_memory:
+[1m    677[22m         data [38m=[39m _utils[38m.[39mpin_memory[38m.[39mpin_memory(data, [38mself.[39m_pin_memory_device)
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py:54, in _MapDatasetFetcher.fetch(self, possibly_batched_index)
+[1m     52[22m [38melse[39m:
+[1m     53[22m     data [38m=[39m [38mself.[39mdataset[possibly_batched_index]
+---> 54 [38mreturn[39m [38mself.[39m[43mcollate_fn(data)
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/transformers/data/data_collator.py:45, in DataCollatorMixin.__call__(self, features, return_tensors)
+[1m     43[22m     [38mreturn[39m [38mself.[39mtf_call(features)
+[1m     44[22m [38melif[39m return_tensors [38m==[39m [38m"pt"[39m:
+---> 45     [38mreturn[39m [38mself.[39m[43mtorch_call(features)
+[1m     46[22m [38melif[39m return_tensors [38m==[39m [38m"np"[39m:
+[1m     47[22m     [38mreturn[39m [38mself.[39mnumpy_call(features)
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/transformers/data/data_collator.py:732, in DataCollatorForLanguageModeling.torch_call(self, examples)
+[1m    729[22m [38mdef[39m [38mtorch_call[39m([38mself[39m, examples: List[Union[List[[38mint[39m], Any, Dict[[38mstr[39m, Any]]]) [38m->[39m Dict[[38mstr[39m, Any]:
+[1m    730[22m     [38m# Handle dict or lists with proper padding and conversion to tensor.
+[1m    731[22m     [38mif[39m [38misinstance[39m(examples[[38m0[39m], Mapping):
+--> 732         batch [38m=[39m [38mself.[39m[43mtokenizer[38m[49m.[39m[43mpad(examples, return_tensors[38m[49m="pt"[39m[43m, pad_to_multiple_of[38m[49m=self.[39m[43mpad_to_multiple_of)
+[1m    733[22m     [38melse[39m:
+[1m    734[22m         batch [38m=[39m {
+[1m    735[22m             [38m"input_ids"[39m: _torch_collate_batch(examples, [38mself.[39mtokenizer, pad_to_multiple_of[38m=self.[39mpad_to_multiple_of)
+[1m    736[22m         }
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:3255, in PreTrainedTokenizerBase.pad(self, encoded_inputs, padding, max_length, pad_to_multiple_of, return_attention_mask, return_tensors, verbose)
+[1m   3252[22m         encoded_inputs[key] [38m=[39m to_py_obj(value)
+[1m   3254[22m [38m# Convert padding_strategy in PaddingStrategy
+-> 3255 padding_strategy, _, max_length, _ [38m=[39m [38mself.[39m[43m_get_padding_truncation_strategies(
+[1m   3256[22m [43m    padding[38m[49m=[39m[43mpadding, max_length[38m[49m=[39m[43mmax_length, verbose[38m[49m=[39m[43mverbose
+[1m   3257[22m [43m)
+[1m   3259[22m required_input [38m=[39m encoded_inputs[[38mself.[39mmodel_input_names[[38m0[39m]]
+[1m   3260[22m [38mif[39m required_input [38mand[39m [38mnot[39m [38misinstance[39m(required_input[[38m0[39m], ([38mlist[39m, [38mtuple[39m)):
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:2703, in PreTrainedTokenizerBase._get_padding_truncation_strategies(self, padding, truncation, max_length, pad_to_multiple_of, verbose, **kwargs)
+[1m   2701[22m [38m# Test if we have a padding token
+[1m   2702[22m [38mif[39m padding_strategy [38m!=[39m PaddingStrategy[38m.[39mDO_NOT_PAD [38mand[39m ([38mself.[39mpad_token [38mis[39m [38mNone[39m [38mor[39m [38mself.[39mpad_token_id [38m<[39m [38m0[39m):
+-> 2703     [38mraise[39m [38mValueError[39m(
+[1m   2704[22m         [38m"Asking to pad but the tokenizer does not have a padding token. "
+[1m   2705[22m         [38m"Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` "
+[1m   2706[22m         [38m"or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`."
+[1m   2707[22m     )
+[1m   2709[22m [38m# Check that we will truncate to a multiple of pad_to_multiple_of if both are provided
+[1m   2710[22m [38mif[39m (
+[1m   2711[22m     truncation_strategy [38m!=[39m TruncationStrategy[38m.[39mDO_NOT_TRUNCATE
+[1m   2712[22m     [38mand[39m padding_strategy [38m!=[39m PaddingStrategy[38m.[39mDO_NOT_PAD
+   (...)
+[1m   2715[22m     [38mand[39m (max_length [38m%[39m pad_to_multiple_of [38m!=[39m [38m0[39m)
+[1m   2716[22m ):
+ValueError: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
+trainable params: 1,010,892,800 || all params: 14,026,757,120 || trainable%: 7.20688888637433
+trainable params: 1,010,892,800 || all params: 14,026,757,120 || trainable%: 7.20688888637433
+  0%|                                                                                                             | 0/498 [00:00<?, ?it/s]Detected kernel version 3.10.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+                                                                                                                                          `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+/users/j/s/jstonge1/miniconda3/envs/llama_env/lib/python3.9/site-packages/torch/utils/checkpoint.py:464: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+   (...)trainer [38m=[39m Trainer(-------------------------------------------------: 7.20688888637433
+[1m     23[22m     model[38m=[39mmodel,
+[1m     24[22m     args[38m=[39mtraining_args,
+   (...)trainer [38m=[39m Trainer(-------------------------------------------------: 7.20688888637433
+[1m     28[22m     callbacks[38m=[39m[profiler_callback] [38mif[39m enable_profiler [38melse[39m [],
+[1m     29[22m )
+[1m     30[22m [38m# Start training
+---> 31 [43mtrainer[38m[49m.[39m[43mtrain()
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/transformers/trainer.py:1555, in Trainer.train(self, resume_from_checkpoint, trial, ignore_keys_for_eval, **kwargs)
+[1m   1553[22m         hf_hub_utils[38m.[39menable_progress_bars()
+[1m   1554[22m [38melse[39m:
+-> 1555     [38mreturn[39m [43minner_training_loop(
+[1m   1556[22m [43m        args[38m[49m=[39m[43margs,
+[1m   1557[22m [43m        resume_from_checkpoint[38m[49m=[39m[43mresume_from_checkpoint,
+[1m   1558[22m [43m        trial[38m[49m=[39m[43mtrial,
+[1m   1559[22m [43m        ignore_keys_for_eval[38m[49m=[39m[43mignore_keys_for_eval,
+[1m   1560[22m [43m    )
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/transformers/trainer.py:1904, in Trainer._inner_training_loop(self, batch_size, args, resume_from_checkpoint, trial, ignore_keys_for_eval)
+[1m   1899[22m         nn[38m.[39mutils[38m.[39mclip_grad_norm_(
+[1m   1900[22m             amp[38m.[39mmaster_params([38mself.[39moptimizer),
+[1m   1901[22m             args[38m.[39mmax_grad_norm,
+[1m   1902[22m         )
+[1m   1903[22m     [38melse[39m:
+-> 1904         [38mself.[39m[43maccelerator[38m[49m.[39m[43mclip_grad_norm_(
+[1m   1905[22m [43m            model[38m[49m.[39m[43mparameters(),
+[1m   1906[22m [43m            args[38m[49m.[39m[43mmax_grad_norm,
+[1m   1907[22m [43m        )
+[1m   1909[22m [38m# Optimizer step
+[1m   1910[22m [38mself.[39moptimizer[38m.[39mstep()
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/accelerate/accelerator.py:2124, in Accelerator.clip_grad_norm_(self, parameters, max_norm, norm_type)
+[1m   2120[22m [38melif[39m [38mself.[39mdistributed_type [38m==[39m DistributedType[38m.[39mDEEPSPEED:
+[1m   2121[22m     [38m# `accelerator.backward(loss)` is doing that automatically. Therefore, its implementation is not needed
+[1m   2122[22m     [38m# We cannot return the gradient norm because DeepSpeed does it.
+[1m   2123[22m     [38mreturn[39m [38mNone
+-> 2124 [38mself.[39m[43munscale_gradients()
+[1m   2125[22m [38mreturn[39m torch[38m.[39mnn[38m.[39mutils[38m.[39mclip_grad_norm_(parameters, max_norm, norm_type[38m=[39mnorm_type)
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/accelerate/accelerator.py:2087, in Accelerator.unscale_gradients(self, optimizer)
+[1m   2085[22m     gradients [38m=[39m xm[38m.[39m_fetch_gradients(opt)
+[1m   2086[22m     [38mself.[39mreduce(gradients, scale[38m=1.0[39m [38m/[39m [38mself.[39mnum_processes)
+-> 2087 [38mself.[39m[43mscaler[38m[49m.[39m[43munscale_(opt)
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/torch/cuda/amp/grad_scaler.py:336, in GradScaler.unscale_(self, optimizer)
+[1m    333[22m inv_scale [38m=[39m [38mself.[39m_scale[38m.[39mdouble()[38m.[39mreciprocal()[38m.[39mfloat()
+[1m    334[22m found_inf [38m=[39m torch[38m.[39mfull((), [38m0.0[39m, dtype[38m=[39mtorch[38m.[39mfloat32, device[38m=self.[39m_scale[38m.[39mdevice)
+--> 336 optimizer_state[[38m"found_inf_per_device"[39m] [38m=[39m [38mself.[39m[43m_unscale_grads_(
+[1m    337[22m [43m    optimizer, inv_scale, found_inf, [38m[49mFalse
+[1m    338[22m [43m)
+[1m    339[22m optimizer_state[[38m"stage"[39m] [38m=[39m OptState[38m.[39mUNSCALED
+File ~/miniconda3/envs/llama_env/lib/python3.9/site-packages/torch/cuda/amp/grad_scaler.py:258, in GradScaler._unscale_grads_(self, optimizer, inv_scale, found_inf, allow_fp16)
+[1m    256[22m     [38mcontinue
+[1m    257[22m [38mif[39m ([38mnot[39m allow_fp16) [38mand[39m param[38m.[39mgrad[38m.[39mdtype [38m==[39m torch[38m.[39mfloat16:
+--> 258     [38mraise[39m [38mValueError[39m([38m"Attempting to unscale FP16 gradients."[39m)
+[1m    259[22m [38mif[39m param[38m.[39mgrad[38m.[39mis_sparse:
+[1m    260[22m     [38m# is_coalesced() == False means the sparse grad has values with duplicate indices.
+[1m    261[22m     [38m# coalesce() deduplicates indices and adds all values that have the same index.
+[1m    262[22m     [38m# For scaled fp16 values, there's a good chance coalescing will cause overflow,
+[1m    263[22m     [38m# so we should check the coalesced _values().
+[1m    264[22m     [38mif[39m param[38m.[39mgrad[38m.[39mdtype [38mis[39m torch[38m.[39mfloat16:
+ValueError: Attempting to unscale FP16 gradients.
+  0%|                                                                                                                                                                            | 0/498 [03:51<?, ?it/s]
