@@ -2,3 +2,4 @@ weights/
 data/
 tmp/
 snapshots.json
+wandb/

@@ -3,7 +3,16 @@
 Welcome to the Llama Training Guide! This document provides step-by-step instructions to set up and use the system for training Llama models using the LoRa method. Since VACC uses older Linux Kernels, it does not have adequate support for some key libraries used for training. This script evolved after a lot of trial and error, so use at your own caution.
 
 ## Prerequisites
-- Access to at least 4 GPUs in a DeepGreen node.
+- Access to at least 4 GPUs in a DeepGreen node, e.g.
+```zsh
+#SBATCH --partition=dggpu
+#SBATCH --nodes=1
+#SBATCH --ntasks=5
+#SBATCH --mem=60G
+#SBATCH --gres=gpu:4
+#SBATCH --time=12:00:00
+#SBATCH --job-name=jupyter
+```
 - Conda installed on your system.
 - Access to the model weights (contact achawla1@uvm.edu or jstonge1@uvm.edu if needed).
 
