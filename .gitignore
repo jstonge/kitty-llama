@@ -3,3 +3,6 @@ data/
 tmp/
 snapshots.json
 wandb/
+outputs/13Bf_finetuned_01/
+scripts/core.15584
+scripts/slurms/

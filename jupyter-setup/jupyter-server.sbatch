@@ -7,17 +7,14 @@
 #SBATCH --gres=gpu:4
 #SBATCH --time=12:00:00
 #SBATCH --job-name=jupyter
-
 source ~/myconda.sh
-source ~/.bash_profile
-
 env_name=$1
 
+conda activate llama_env
+module load gcc-9.3.0-gcc-7.3.0-fjzqkyt
 # your job execution follows:
 whoami
 hostname
-conda activate catDB
-module load gcc/10.5.0
-module load cuda/12.2.2 
+
 
 time jupyter notebook --no-browser --port=8900
